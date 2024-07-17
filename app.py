@@ -15,7 +15,9 @@ tasks = {}
 
 # Function to add a task and generate a note
 def add_task(task_name, task_details):
-    note = marco_chatbot(f"How to approach the task: {task_details}")
+    # Create a prompt that guides the AI to provide a useful note
+    prompt = f"Provide a step-by-step guide on how to approach the task: {task_details}. Include useful tips and relevant resources."
+    note = marco_chatbot(prompt)
     tasks[task_name] = {'details': task_details, 'note': note, 'completed': False}
     return f"Task '{task_name}' added. Note: {note}"
 
